@@ -209,20 +209,6 @@ class _HomeState extends State<Home> {
     );
   }
 
-  FirebaseUser user;
-  Future<void> getUserData() async {
-    FirebaseUser userData = await FirebaseAuth.instance.currentUser();
-    setState(() {
-      user = userData;
-      print(user.email);
-    });
-  }
-
-  void initState() {
-    super.initState();
-    getUserData();
-  }
-
   @override
   Widget build(BuildContext context) {
     Marker autoshopMarker1 = Marker(
@@ -280,7 +266,7 @@ class _HomeState extends State<Home> {
           "assets/autoshop_pic/autoshop5.jpg", "Shanicus", "09362481318"),
     );
     return Scaffold(
-      drawer: MenuDrawer(user.email),
+      drawer: MenuDrawer(),
       appBar: AppBar(
         title: Text("Tabang Byahero"),
       ),

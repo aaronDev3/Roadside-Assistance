@@ -8,23 +8,13 @@ class MenuDrawer extends StatelessWidget {
     FirebaseUser user = auth.signOut() as FirebaseUser;
   }
 
-  final String email;
-  MenuDrawer(this.email);
-
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: Column(
         children: <Widget>[
           UserAccountsDrawerHeader(
-            currentAccountPicture: CircleAvatar(
-              child: Text(
-                this.email[0].toUpperCase(),
-                style: TextStyle(fontSize: 40),
-              ),
-              backgroundColor: Theme.of(context).primaryColorDark,
-              foregroundColor: Theme.of(context).canvasColor,
-            ),
+            currentAccountPicture: null,
             accountName: null,
             accountEmail: null,
             decoration: new BoxDecoration(
